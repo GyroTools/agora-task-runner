@@ -1,0 +1,17 @@
+services:
+  task-runner:
+    image: task-runner:latest
+    environment:
+      USERNAME: runner
+      PASSWORD: secret123
+      UID: "1001"
+      GID: "1001"
+      SSH_PORT: "22"
+    ports:
+      - "22:22"   
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 22"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
