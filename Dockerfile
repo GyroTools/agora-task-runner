@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install SSH server and common tools
 RUN apt-get update && apt-get install -y \
     openssh-server \
+    netcat-openbsd \
     python3 \
     python3-pip \
     python3-venv \
